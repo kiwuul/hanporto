@@ -1,0 +1,358 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Farhan Portfolio</title>
+
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Cdefs%3E%3ClinearGradient id='g' x1='0' y1='0' x2='1' y2='1'%3E%3Cstop offset='0' stop-color='%23ff0099'/%3E%3Cstop offset='1' stop-color='%23ff0000'/%3E%3C/linearGradient%3E%3C/defs%3E%3Crect width='64' height='64' rx='15' fill='url(%23g)'/%3E%3Ctext x='32' y='44' font-family='Helvetica,Arial,sans-serif' font-size='30' font-weight='bold' fill='%23fff' text-anchor='middle'%3EMFI%3C/text%3E%3C/svg%3E">
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@100;200;300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="assets/style.css">
+<noscript><style>.rv,.rise,.wordmark .gl{opacity:1!important;transform:none!important}#pre{display:none}</style></noscript>
+</head>
+<body>
+
+
+<!-- ░░ ENVIRONMENT ░░ -->
+<div class="env">
+  <div class="concrete"></div>
+  <div class="grid"></div>
+  <div class="bloom" id="bloom"></div>
+</div>
+<div class="grain"></div>
+
+<!-- ░░ NAV ░░ -->
+<nav class="nav">
+  <a href="index.html" class="mark">
+    <span class="mark-glyph">MFI</span>
+    <span class="mark-txt"><b>Farhan's Portofolio</b><span class="mono">Creative Person</span></span>
+  </a>
+
+  <div class="nav-mid glass">
+    <a href="index.html" class="mono">Home</a>
+    <a href="me.html" class="mono">About Me</a>
+    <a href="video.html" class="mono on" aria-current="page">Video Editing</a>
+    <a href="3d.html" class="mono">3D Animation</a>
+    <a href="photograph.html" class="mono">Photography</a>
+  </div>
+
+  <div class="nav-end">
+    <div class="status glass mono"><span class="led"></span> Open for work</div>
+    <button class="burger glass" id="burger" aria-label="Menu">
+      <span></span><span></span><span></span>
+    </button>
+  </div>
+</nav>
+
+<!-- ░░ MOBILE SHEET ░░ -->
+<div class="sheet glass" id="sheet">
+  <a href="me.html">About Me <i>01</i></a>
+  <a href="video.html">Video Editing <i>01</i></a>
+  <a href="3d.html">3D Animation <i>03</i></a>
+  <a href="photograph.html">Photography <i>04</i></a>
+  <a href="mailto:irfanifarhan18@gmail.com">Contact <i>→</i></a>
+</div>
+
+<!-- ░░ 02 · PROMPTER ░░ -->
+<section class="chapter" id="prompter">
+  <div class="wrap">
+
+    <header class="ch-head rv">
+     
+      <h2 class="ch-title">Video <em>Editing</em></h2>
+      <span class="ch-rule"></span>
+    </header>
+
+    <!-- the banner: photo, wordmark, him, then the tools rail —
+         each on its own layer so he stands in front of the type -->
+    <div class="banner rv">
+      <picture class="banner-bg">
+        <source srcset="assets/media/prompter-bg.webp" type="image/webp">
+        <img src="assets/media/prompter-bg.jpg" alt="Shibuya crossing at night"
+             width="1366" height="623" decoding="async">
+      </picture>
+
+      <span class="banner-word dovde" data-split>Vid Editor</span>
+
+      <picture class="banner-cut">
+        <source srcset="assets/media/prompter-cut.webp" type="image/webp">
+        <img src="assets/media/prompter-cut.png" alt="Muhammad Ikmal Maulana"
+             width="371" height="510" decoding="async">
+      </picture>
+
+      <div class="banner-claim">
+        <p>Make your video <em>perfect</em>.</p>
+        <div class="banner-figs">
+          <span><b>500+</b> Videos edited</span>
+          <span><b>1000+</b> cup of coffees</span>
+        </div>
+      </div>
+
+      <div class="rail" id="promptRail">
+        <span class="rail-lbl">Tools</span>
+        <ul class="rail-list">
+          <li><img src="assets/tools/kling.png" alt="Premiere Pro" loading="lazy"><i>Main tool</i></li>
+          <li><img src="assets/tools/gemini.png" alt="After Effect" loading="lazy"><i>Motion and VFX</i></li>
+          <li><img src="assets/tools/chatgpt.png" alt="Davinci Resolve" loading="lazy"><i>Coloring</i></li>
+          <li><img src="assets/tools/elevenlabs.png" alt="Capcut" loading="lazy"><i>Additional</i></li>
+        </ul>
+      </div>
+    </div>
+
+    <!-- ── what prompting means here ── -->
+    <div class="lede rv">
+      <p class="lede-text">
+        <span class="s1">Lorem ipsum dolor sit amet.</span>
+        lorem ipsum dolor sit amet lorem ipsum dolor sit amet lorem ipsum dolor sit amet
+        lorem ipsum dolor sit amet lorem ipsum dolor sit amet lorem ipsum dolor sit amet
+        lorem ipsum dolor sit amet lorem ipsum dolor sit amet lorem ipsum dolor sit amet
+      </p>
+    </div>
+
+    <!-- ── the invitation ── -->
+    <p class="tap-hint rv">
+      <span class="tap-ico">+</span>
+      Every hand is a stack of work.
+      <b>Tap one</b> to lay all the cards out.
+    </p>
+
+    <!-- ── group 1 · product video ── -->
+    <section class="group drawer rv" aria-labelledby="g-product">
+      <button class="drawer-head" type="button" aria-expanded="true" aria-controls="d-product">
+        <span class="fan" aria-hidden="true">
+          <span class="fan-card"><picture>
+            <source srcset="assets/media/thumbs/prompter-01.webp" type="image/webp">
+            <img src="assets/media/thumbs/prompter-01.jpg" alt="" loading="lazy" decoding="async">
+          </picture></span>
+          <span class="fan-card"><picture>
+            <source srcset="assets/media/thumbs/prompter-03.webp" type="image/webp">
+            <img src="assets/media/thumbs/prompter-03.jpg" alt="" loading="lazy" decoding="async">
+          </picture></span>
+          <span class="fan-card"><picture>
+            <source srcset="assets/media/thumbs/prompter-02.webp" type="image/webp">
+            <img src="assets/media/thumbs/prompter-02.jpg" alt="" loading="lazy" decoding="async">
+          </picture></span>
+          <span class="fan-card"><picture>
+            <source srcset="assets/media/thumbs/prompter-04.webp" type="image/webp">
+            <img src="assets/media/thumbs/prompter-04.jpg" alt="" loading="lazy" decoding="async">
+          </picture></span>
+          <span class="fan-card"><picture>
+            <source srcset="assets/media/thumbs/prompter-05.webp" type="image/webp">
+            <img src="assets/media/thumbs/prompter-05.jpg" alt="" loading="lazy" decoding="async">
+          </picture></span>
+        </span>
+        <span class="d-plate">
+          <span class="d-side">
+            <span class="d-no">01</span>
+            <span class="d-count">5 works</span>
+          </span>
+          <span class="d-txt">
+            <b id="g-product">Video Product</b>
+            <i>On TikTok — full AI generated content</i>
+          </span>
+          <span class="d-icon" aria-hidden="true"><em></em><em></em></span>
+        </span>
+      </button>
+
+      <div class="drawer-body" id="d-product"><div class="drawer-in">
+      <div class="reel reel--land">
+        <figure class="shot">
+          <video src="assets/media/prompter-01.mp4" poster="assets/media/thumbs/prompter-01.jpg"
+                 preload="none" loop playsinline
+                 aria-label="Product video 1"></video>
+          <button class="play" type="button" aria-label="Play Product video 1"><i><svg class="ico ico-play" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M8.2 5.4v13.2L19 12z"/></svg><svg class="ico ico-pause" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M9 5.6h2.6v12.8H9zM12.9 5.6h2.6v12.8h-2.6z"/></svg></i></button>
+        </figure>
+        <figure class="shot">
+          <video src="assets/media/prompter-02.mp4" poster="assets/media/thumbs/prompter-02.jpg"
+                 preload="none" loop playsinline
+                 aria-label="Featured product video"></video>
+          <button class="play" type="button" aria-label="Play Featured product video"><i><svg class="ico ico-play" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M8.2 5.4v13.2L19 12z"/></svg><svg class="ico ico-pause" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M9 5.6h2.6v12.8H9zM12.9 5.6h2.6v12.8h-2.6z"/></svg></i></button>
+        </figure>
+        <figure class="shot">
+          <video src="assets/media/prompter-03.mp4" poster="assets/media/thumbs/prompter-03.jpg"
+                 preload="none" loop playsinline
+                 aria-label="Product video 3"></video>
+          <button class="play" type="button" aria-label="Play Product video 3"><i><svg class="ico ico-play" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M8.2 5.4v13.2L19 12z"/></svg><svg class="ico ico-pause" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M9 5.6h2.6v12.8H9zM12.9 5.6h2.6v12.8h-2.6z"/></svg></i></button>
+        </figure>
+        <figure class="shot">
+          <video src="assets/media/Videopotrait%20Kuning.mp4" poster="assets/media/thumbs/prompter-04.jpg"
+                 preload="none" loop playsinline aria-label="Product video 4"></video>
+          <button class="play" type="button" aria-label="Play product video 4"><i><svg class="ico ico-play" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M8.2 5.4v13.2L19 12z"/></svg><svg class="ico ico-pause" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M9 5.6h2.6v12.8H9zM12.9 5.6h2.6v12.8h-2.6z"/></svg></i></button>
+        </figure>
+        <figure class="shot">
+          <video src="assets/media/Step-3.mp4" poster="assets/media/thumbs/prompter-05.jpg"
+                 preload="none" loop playsinline aria-label="Product video 5"></video>
+          <button class="play" type="button" aria-label="Play product video 5"><i><svg class="ico ico-play" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M8.2 5.4v13.2L19 12z"/></svg><svg class="ico ico-pause" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M9 5.6h2.6v12.8H9zM12.9 5.6h2.6v12.8h-2.6z"/></svg></i></button>
+        </figure>
+        <figure class="shot">
+          <video src="assets/media/Step-3.mp4" poster="assets/media/thumbs/prompter-05.jpg"
+                 preload="none" loop playsinline aria-label="Product video 5"></video>
+          <button class="play" type="button" aria-label="Play product video 5"><i><svg class="ico ico-play" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M8.2 5.4v13.2L19 12z"/></svg><svg class="ico ico-pause" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M9 5.6h2.6v12.8H9zM12.9 5.6h2.6v12.8h-2.6z"/></svg></i></button>
+        </figure>
+      </div>
+      </div></div>
+    </section>
+
+    <!-- ── group 2 · ugc, animation, brands ── -->
+    <section class="group drawer rv" aria-labelledby="g-ugc">
+      <button class="drawer-head" type="button" aria-expanded="true" aria-controls="d-ugc">
+        <span class="fan" aria-hidden="true">
+          <span class="fan-card"><picture>
+            <source srcset="assets/media/thumbs/prompter-ugc-02.webp" type="image/webp">
+            <img src="assets/media/thumbs/prompter-ugc-02.jpg" alt="" loading="lazy" decoding="async">
+          </picture></span>
+          <span class="fan-card"><picture>
+            <source srcset="assets/media/thumbs/prompter-ugc-04.webp" type="image/webp">
+            <img src="assets/media/thumbs/prompter-ugc-04.jpg" alt="" loading="lazy" decoding="async">
+          </picture></span>
+          <span class="fan-card"><picture>
+            <source srcset="assets/media/thumbs/prompter-ugc-03.webp" type="image/webp">
+            <img src="assets/media/thumbs/prompter-ugc-03.jpg" alt="" loading="lazy" decoding="async">
+          </picture></span>
+          <span class="fan-card"><picture>
+            <source srcset="assets/media/thumbs/prompter-ugc-01.webp" type="image/webp">
+            <img src="assets/media/thumbs/prompter-ugc-01.jpg" alt="" loading="lazy" decoding="async">
+          </picture></span>
+          <span class="fan-card"><picture>
+            <source srcset="assets/media/thumbs/prompter-ugc-05.webp" type="image/webp">
+            <img src="assets/media/thumbs/prompter-ugc-05.jpg" alt="" loading="lazy" decoding="async">
+          </picture></span>
+        </span>
+        <span class="d-plate">
+          <span class="d-side">
+            <span class="d-no">02</span>
+            <span class="d-count">5 works</span>
+          </span>
+          <span class="d-txt">
+            <b id="g-ugc">UGC · Animation · Brands</b>
+            <i>All of this made with AI</i>
+          </span>
+          <span class="d-icon" aria-hidden="true"><em></em><em></em></span>
+        </span>
+      </button>
+
+      <div class="drawer-body" id="d-drama"><div class="drawer-in">
+      <div class="reel reel--six">
+        <figure class="shot">
+          <video src="assets/media/prompter-ugc-01.mp4" poster="assets/media/thumbs/prompter-ugc-01.jpg"
+                 preload="none" loop playsinline
+                 aria-label="UGC talking head"></video>
+          <button class="play" type="button" aria-label="Play UGC talking head"><i><svg class="ico ico-play" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M8.2 5.4v13.2L19 12z"/></svg><svg class="ico ico-pause" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M9 5.6h2.6v12.8H9zM12.9 5.6h2.6v12.8h-2.6z"/></svg></i></button>
+        </figure>
+        <figure class="shot">
+          <video src="assets/media/prompter-ugc-02.mp4" poster="assets/media/thumbs/prompter-ugc-02.jpg"
+                 preload="none" loop playsinline
+                 aria-label="UGC brand film"></video>
+          <button class="play" type="button" aria-label="Play UGC brand film"><i><svg class="ico ico-play" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M8.2 5.4v13.2L19 12z"/></svg><svg class="ico ico-pause" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M9 5.6h2.6v12.8H9zM12.9 5.6h2.6v12.8h-2.6z"/></svg></i></button>
+        </figure>
+        <figure class="shot">
+          <video src="assets/media/prompter-ugc-03.mp4" poster="assets/media/thumbs/prompter-ugc-03.jpg"
+                 preload="none" loop playsinline
+                 aria-label="UGC product"></video>
+          <button class="play" type="button" aria-label="Play UGC product"><i><svg class="ico ico-play" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M8.2 5.4v13.2L19 12z"/></svg><svg class="ico ico-pause" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M9 5.6h2.6v12.8H9zM12.9 5.6h2.6v12.8h-2.6z"/></svg></i></button>
+        </figure>
+        <figure class="shot">
+          <video src="assets/media/prompter-ugc-04.mp4" poster="assets/media/thumbs/prompter-ugc-04.jpg"
+                 preload="none" loop playsinline
+                 aria-label="UGC square"></video>
+          <button class="play" type="button" aria-label="Play UGC square"><i><svg class="ico ico-play" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M8.2 5.4v13.2L19 12z"/></svg><svg class="ico ico-pause" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M9 5.6h2.6v12.8H9zM12.9 5.6h2.6v12.8h-2.6z"/></svg></i></button>
+        </figure>
+        <figure class="shot">
+          <video src="assets/media/Ios%20259%20Goatchat%20V%20En%20Influencer%20Option01.mp4" poster="assets/media/thumbs/prompter-ugc-05.jpg"
+                 preload="none" loop playsinline
+                 aria-label="UGC influencer"></video>
+          <button class="play" type="button" aria-label="Play UGC influencer"><i><svg class="ico ico-play" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M8.2 5.4v13.2L19 12z"/></svg><svg class="ico ico-pause" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M9 5.6h2.6v12.8H9zM12.9 5.6h2.6v12.8h-2.6z"/></svg></i></button>
+        </figure>
+      </div>
+      </div></div>
+    </section>
+
+    <!-- ── group 3 · drama & storytelling ── -->
+    <section class="group drawer rv" aria-labelledby="g-drama">
+      <button class="drawer-head" type="button" aria-expanded="true" aria-controls="d-drama">
+        <span class="fan" aria-hidden="true">
+          <span class="fan-card"><picture>
+            <source srcset="assets/media/thumbs/drama-06.webp" type="image/webp">
+            <img src="assets/media/thumbs/drama-06.jpg" alt="" loading="lazy" decoding="async">
+          </picture></span>
+          <span class="fan-card"><picture>
+            <source srcset="assets/media/thumbs/drama-03.webp" type="image/webp">
+            <img src="assets/media/thumbs/drama-03.jpg" alt="" loading="lazy" decoding="async">
+          </picture></span>
+          <span class="fan-card"><picture>
+            <source srcset="assets/media/thumbs/drama-02.webp" type="image/webp">
+            <img src="assets/media/thumbs/drama-02.jpg" alt="" loading="lazy" decoding="async">
+          </picture></span>
+          <span class="fan-card"><picture>
+            <source srcset="assets/media/thumbs/drama-01.webp" type="image/webp">
+            <img src="assets/media/thumbs/drama-01.jpg" alt="" loading="lazy" decoding="async">
+          </picture></span>
+          <span class="fan-card"><picture>
+            <source srcset="assets/media/thumbs/drama-04.webp" type="image/webp">
+            <img src="assets/media/thumbs/drama-04.jpg" alt="" loading="lazy" decoding="async">
+          </picture></span>
+        </span>
+        <span class="d-plate">
+          <span class="d-side">
+            <span class="d-no">03</span>
+            <span class="d-count">6 works</span>
+          </span>
+          <span class="d-txt">
+            <b id="g-drama">Drama &amp; Storytelling</b>
+            <i>Character consistency · scene continuity · emotional beat</i>
+          </span>
+          <span class="d-icon" aria-hidden="true"><em></em><em></em></span>
+        </span>
+      </button>
+
+      <div class="drawer-body" id="d-drama"><div class="drawer-in">
+      <div class="reel reel--six">
+        <figure class="shot">
+          <video src="assets/media/Drama%20AI%20.mp4" poster="assets/media/thumbs/drama-01.jpg"
+                 preload="none" loop playsinline aria-label="Drama — Menggali Aku"></video>
+          <button class="play" type="button" aria-label="Play drama 1"><i><svg class="ico ico-play" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M8.2 5.4v13.2L19 12z"/></svg><svg class="ico ico-pause" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M9 5.6h2.6v12.8H9zM12.9 5.6h2.6v12.8h-2.6z"/></svg></i></button>
+        </figure>
+        <figure class="shot">
+          <video src="assets/media/DRAMA%20STORY%202(1).mp4" poster="assets/media/thumbs/drama-02.jpg"
+                 preload="none" loop playsinline aria-label="Drama story — cinematic"></video>
+          <button class="play" type="button" aria-label="Play drama 2"><i><svg class="ico ico-play" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M8.2 5.4v13.2L19 12z"/></svg><svg class="ico ico-pause" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M9 5.6h2.6v12.8H9zM12.9 5.6h2.6v12.8h-2.6z"/></svg></i></button>
+        </figure>
+        <figure class="shot">
+          <video src="assets/media/DRAMA%20STORY%202(2).mp4" poster="assets/media/thumbs/drama-03.jpg"
+                 preload="none" loop playsinline aria-label="Drama story — animated"></video>
+          <button class="play" type="button" aria-label="Play drama 3"><i><svg class="ico ico-play" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M8.2 5.4v13.2L19 12z"/></svg><svg class="ico ico-pause" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M9 5.6h2.6v12.8H9zM12.9 5.6h2.6v12.8h-2.6z"/></svg></i></button>
+        </figure>
+        <figure class="shot">
+          <video src="assets/media/DRAMA%20STORY%202(3).mp4" poster="assets/media/thumbs/drama-04.jpg"
+                 preload="none" loop playsinline aria-label="Drama story — office scene"></video>
+          <button class="play" type="button" aria-label="Play drama 4"><i><svg class="ico ico-play" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M8.2 5.4v13.2L19 12z"/></svg><svg class="ico ico-pause" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M9 5.6h2.6v12.8H9zM12.9 5.6h2.6v12.8h-2.6z"/></svg></i></button>
+        </figure>
+        <figure class="shot">
+          <video src="assets/media/Drama%20Story%20.mp4" poster="assets/media/thumbs/drama-05.jpg"
+                 preload="none" loop playsinline aria-label="Drama story — illustrated"></video>
+          <button class="play" type="button" aria-label="Play drama 5"><i><svg class="ico ico-play" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M8.2 5.4v13.2L19 12z"/></svg><svg class="ico ico-pause" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M9 5.6h2.6v12.8H9zM12.9 5.6h2.6v12.8h-2.6z"/></svg></i></button>
+        </figure>
+        <figure class="shot">
+          <video src="assets/media/Drama%2Bstory%20telling.mp4" poster="assets/media/thumbs/drama-06.jpg"
+                 preload="none" loop playsinline aria-label="Drama and storytelling"></video>
+          <button class="play" type="button" aria-label="Play drama 6"><i><svg class="ico ico-play" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M8.2 5.4v13.2L19 12z"/></svg><svg class="ico ico-pause" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M9 5.6h2.6v12.8H9zM12.9 5.6h2.6v12.8h-2.6z"/></svg></i></button>
+        </figure>
+      </div>
+      </div></div>
+    </section>
+
+    
+
+   
+
+  </div>
+</section>
+
+
+
+<script src="assets/app.js"></script>
+</body>
+</html>

@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Farhan Portfolio</title>
+
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Cdefs%3E%3ClinearGradient id='g' x1='0' y1='0' x2='1' y2='1'%3E%3Cstop offset='0' stop-color='%23ff0099'/%3E%3Cstop offset='1' stop-color='%23ff0000'/%3E%3C/linearGradient%3E%3C/defs%3E%3Crect width='64' height='64' rx='15' fill='url(%23g)'/%3E%3Ctext x='32' y='44' font-family='Helvetica,Arial,sans-serif' font-size='30' font-weight='bold' fill='%23fff' text-anchor='middle'%3EMFI%3C/text%3E%3C/svg%3E">
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@100;200;300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="assets/style.css">
+<noscript><style>.rv,.rise,.wordmark .gl{opacity:1!important;transform:none!important}#pre{display:none}</style></noscript>
+</head>
+<body>
+
+
+<!-- ░░ ENVIRONMENT ░░ -->
+<div class="env">
+  <div class="concrete"></div>
+  <div class="grid"></div>
+  <div class="bloom" id="bloom"></div>
+</div>
+<div class="grain"></div>
+
+<!-- ░░ NAV ░░ -->
+<nav class="nav">
+  <a href="index.html" class="mark">
+    <span class="mark-glyph">MFI</span>
+    <span class="mark-txt"><b>Farhan's Portofolio</b><span class="mono">Creative Person</span></span>
+  </a>
+
+  <div class="nav-mid glass">
+    <a href="index.html" class="mono">Home</a>
+    <a href="me.html" class="mono">About Me</a>
+    <a href="video.html" class="mono">Video Editing</a>
+    <a href="3d.html" class="mono on"  aria-current="page">3D Animation</a>
+    <a href="photograph.html" class="mono">Photography</a>
+  </div>
+
+  <div class="nav-end">
+    <div class="status glass mono"><span class="led"></span> Open for work</div>
+    <button class="burger glass" id="burger" aria-label="Menu">
+      <span></span><span></span><span></span>
+    </button>
+  </div>
+</nav>
+
+<!-- ░░ MOBILE SHEET ░░ -->
+<div class="sheet glass" id="sheet">
+  <a href="me.html">About Me <i>01</i></a>
+  <a href="video.html">Video Editing <i>01</i></a>
+  <a href="3d.html">3D Animation <i>03</i></a>
+  <a href="photograph.html">Photography <i>04</i></a>
+  <a href="mailto:irfanifarhan18@gmail.com">Contact <i>→</i></a>
+</div>
+
+<!-- ░░ 03 · EDITING ░░ -->
+<section class="chapter" id="editing">
+  <div class="wrap">
+
+    <header class="ch-head rv">
+      
+      <h2 class="ch-title">Video <em>Editing</em></h2>
+      <span class="ch-rule"></span>
+    </header>
+
+    <!-- banner: dark frame, the wordmark set hard left, tools on the rail -->
+    <div class="banner banner--edit rv">
+      <picture class="banner-bg">
+        <source srcset="assets/media/edit-banner.webp" type="image/webp">
+        <img src="assets/media/edit-banner.jpg" alt="Night ride on a moped"
+             width="1366" height="725" decoding="async" loading="lazy">
+      </picture>
+
+      <div class="banner-tl">
+        <span class="banner-word dovde" data-split>Editing</span>
+        <span class="banner-sub">&amp; Videographer</span>
+      </div>
+
+      <div class="rail">
+        <span class="rail-lbl">Tools</span>
+        <ul class="rail-list">
+          <li><img src="assets/tools/capcut.png" alt="CapCut" loading="lazy"><i>Cut</i></li>
+          <li><img src="assets/tools/after-effects.png" alt="After Effects" loading="lazy"><i>Motion</i></li>
+          <li><img src="assets/tools/premiere-pro.png" alt="Premiere Pro" loading="lazy"><i>Edit</i></li>
+        </ul>
+      </div>
+    </div>
+
+    
+
+    <!-- ── videography & editing — five kinds of cut ── -->
+    <div class="vg-head rv">
+      <span class="vg-pill">Videography <em>&amp; Editing</em></span>
+      <p>Event, ads, hyperlapse, documentation and motion graphics — shot on set,
+         cut to a rhythm, delivered on brief.</p>
+    </div>
+
+    <div class="vg-grid">
+      <article class="vg-card vg--ev rv">
+        <figure class="shot">
+          <video src="assets/media/Event.mp4" poster="assets/media/thumbs/edit-event.jpg"
+                 preload="none" muted loop playsinline aria-label="Event reel"></video>
+          <button class="play" type="button" aria-label="Play Event reel"><i><svg class="ico ico-play" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M8.2 5.4v13.2L19 12z"/></svg><svg class="ico ico-pause" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M9 5.6h2.6v12.8H9zM12.9 5.6h2.6v12.8h-2.6z"/></svg></i></button>
+        </figure>
+        <div class="vg-foot"><h4>Event</h4><span class="vg-n">01</span></div>
+        <span class="vg-sub">Concerts, launches and ceremonies — cut to the crowd's energy.</span>
+      </article>
+      <article class="vg-card vg--ads rv">
+        <figure class="shot">
+          <video src="assets/media/ads.mp4" poster="assets/media/thumbs/edit-ads.jpg"
+                 preload="none" muted loop playsinline aria-label="Ads reel"></video>
+          <button class="play" type="button" aria-label="Play Ads reel"><i><svg class="ico ico-play" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M8.2 5.4v13.2L19 12z"/></svg><svg class="ico ico-pause" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M9 5.6h2.6v12.8H9zM12.9 5.6h2.6v12.8h-2.6z"/></svg></i></button>
+        </figure>
+        <div class="vg-foot"><h4>Ads</h4><span class="vg-n">02</span></div>
+        <span class="vg-sub">Short product and brand spots built for the feed.</span>
+      </article>
+      <article class="vg-card vg--hy rv">
+        <figure class="shot">
+          <video src="assets/media/hyperlapse.mp4" poster="assets/media/thumbs/edit-hyperlapse.jpg"
+                 preload="none" muted loop playsinline aria-label="Hyperlapse"></video>
+          <button class="play" type="button" aria-label="Play Hyperlapse"><i><svg class="ico ico-play" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M8.2 5.4v13.2L19 12z"/></svg><svg class="ico ico-pause" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M9 5.6h2.6v12.8H9zM12.9 5.6h2.6v12.8h-2.6z"/></svg></i></button>
+        </figure>
+        <div class="vg-foot"><h4>Hyperlapse</h4><span class="vg-n">03</span></div>
+        <span class="vg-sub">Time compressed and stabilised into one moving frame.</span>
+      </article>
+      <article class="vg-card vg--doc rv">
+        <figure class="shot">
+          <video src="assets/media/documentation.mp4" poster="assets/media/thumbs/edit-documentation.jpg"
+                 preload="none" muted loop playsinline aria-label="Documentation reel"></video>
+          <button class="play" type="button" aria-label="Play Documentation reel"><i><svg class="ico ico-play" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M8.2 5.4v13.2L19 12z"/></svg><svg class="ico ico-pause" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M9 5.6h2.6v12.8H9zM12.9 5.6h2.6v12.8h-2.6z"/></svg></i></button>
+        </figure>
+        <div class="vg-foot"><h4>Documentation</h4><span class="vg-n">04</span></div>
+        <span class="vg-sub">Official events and trips, recorded and edited end to end.</span>
+      </article>
+      <article class="vg-card vg--mg rv">
+        <figure class="shot">
+          <video src="assets/media/motiongraph.mp4" poster="assets/media/thumbs/edit-motiongraph.jpg"
+                 preload="none" muted loop playsinline aria-label="Motion graphics"></video>
+          <button class="play" type="button" aria-label="Play Motion graphics"><i><svg class="ico ico-play" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M8.2 5.4v13.2L19 12z"/></svg><svg class="ico ico-pause" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M9 5.6h2.6v12.8H9zM12.9 5.6h2.6v12.8h-2.6z"/></svg></i></button>
+        </figure>
+        <div class="vg-foot"><h4>MotionGraph</h4><span class="vg-n">05</span></div>
+        <span class="vg-sub">Type, shapes and transitions animated in After Effects.</span>
+      </article>
+    </div>
+
+    
+
+  </div>
+</section>
+
+
+
+<script src="assets/app.js"></script>
+</body>
+</html>
