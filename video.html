@@ -159,11 +159,9 @@
 
       <div class="drawer-body" id="d-product"><div class="drawer-in">
       <div class="reel reel--land">
-        <figure class="shot">
-          <video src="assets/media/prompter-01.mp4" poster="assets/media/thumbs/prompter-01.jpg"
-                 preload="none" loop playsinline
-                 aria-label="Product video 1"></video>
-          <button class="play" type="button" aria-label="Play Product video 1"><i><svg class="ico ico-play" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M8.2 5.4v13.2L19 12z"/></svg><svg class="ico ico-pause" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M9 5.6h2.6v12.8H9zM12.9 5.6h2.6v12.8h-2.6z"/></svg></i></button>
+        <figure class="yt-shot" data-yt="https://www.youtube.com/watch?v=GANTI_DENGAN_ID_VIDEO">
+          <img alt="Product video 1" loading="lazy">
+          <button class="play" type="button" aria-label="Play Product video 1"><i><svg class="ico ico-play" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M8.2 5.4v13.2L19 12z"/></svg></i></button>
         </figure>
         <figure class="shot">
           <video src="assets/media/prompter-02.mp4" poster="assets/media/thumbs/prompter-02.jpg"
@@ -234,7 +232,7 @@
         </span>
       </button>
 
-      <div class="drawer-body" id="d-drama"><div class="drawer-in">
+      <div class="drawer-body" id="d-ugc"><div class="drawer-in">
       <div class="reel reel--six">
         <figure class="shot">
           <video src="assets/media/prompter-ugc-01.mp4" poster="assets/media/thumbs/prompter-ugc-01.jpg"
@@ -354,5 +352,86 @@
 
 
 <script src="assets/app.js"></script>
+
+<script>
+/* YouTube tiles: iframe baru dibuat saat tombol play diklik */
+(function () {
+  const tiles = document.querySelectorAll('.yt-shot[data-yt]');
+  if (!tiles.length) return;
+
+  // terima link penuh (watch / youtu.be / shorts / embed) atau ID 11 karakter
+  function ytId(v) {
+    v = (v || '').trim();
+    if (/^[\w-]{11}$/.test(v)) return v;
+    try {
+      const u = new URL(v);
+      if (u.hostname.includes('youtu.be')) return u.pathname.slice(1).split('/')[0];
+      if (u.searchParams.get('v')) return u.searchParams.get('v');
+      const m = u.pathname.match(/\/(?:embed|shorts|live)\/([\w-]{11})/);
+      if (m) return m[1];
+    } catch (e) {}
+    return null;
+  }
+
+  function reset(tile) {
+    const f = tile.querySelector('iframe');
+    if (f) f.remove();
+    tile.classList.remove('playing');
+  }
+  function resetAll(except) {
+    tiles.forEach(t => { if (t !== except) reset(t); });
+  }
+
+  // thumbnail otomatis dari YouTube (resolusi tertinggi dulu, lalu turun)
+  tiles.forEach(tile => {
+    const img = tile.querySelector('img');
+    const id = ytId(tile.dataset.yt);
+    if (!img || !id) return;
+    const base = 'https://i.ytimg.com/vi/' + id + '/';
+    const sizes = ['maxresdefault.jpg', 'hqdefault.jpg'];
+    let i = 0;
+    img.onerror = () => { if (++i < sizes.length) img.src = base + sizes[i]; };
+    img.onload = () => {
+      // maxres yang tidak tersedia kadang tetap mengembalikan gambar placeholder kecil
+      if (img.naturalWidth <= 120 && i < sizes.length - 1) { i++; img.src = base + sizes[i]; }
+    };
+    img.src = base + sizes[0];
+  });
+
+  tiles.forEach(tile => {
+    const btn = tile.querySelector('.play');
+    btn.addEventListener('click', () => {
+      const id = ytId(tile.dataset.yt);
+      if (!id) { console.warn('Link YouTube tidak valid:', tile.dataset.yt); return; }
+
+      resetAll(tile);                                            // hanya satu YouTube aktif
+      document.querySelectorAll('video').forEach(v => v.pause()); // hentikan video lokal
+
+      const f = document.createElement('iframe');
+      f.src = 'https://www.youtube-nocookie.com/embed/' + id + '?autoplay=1&rel=0&playsinline=1';
+      f.title = btn.getAttribute('aria-label') || 'YouTube video';
+      f.allow = 'autoplay; encrypted-media; picture-in-picture; fullscreen';
+      f.allowFullscreen = true;
+      f.referrerPolicy = 'strict-origin-when-cross-origin';
+      tile.appendChild(f);
+      tile.classList.add('playing');
+    });
+  });
+
+  // video lokal mulai diputar -> hentikan YouTube
+  document.addEventListener('play', e => {
+    if (e.target.tagName === 'VIDEO') resetAll();
+  }, true);
+
+  // drawer ditutup -> hentikan YouTube di dalamnya
+  document.querySelectorAll('.drawer-head').forEach(head => {
+    new MutationObserver(() => {
+      if (head.getAttribute('aria-expanded') === 'false') {
+        head.closest('.drawer').querySelectorAll('.yt-shot').forEach(reset);
+      }
+    }).observe(head, { attributes: true, attributeFilter: ['aria-expanded'] });
+  });
+})();
+</script>
 </body>
 </html>
