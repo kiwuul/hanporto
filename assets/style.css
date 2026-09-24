@@ -785,7 +785,7 @@ body.ready .slot{animation:dealIn .95s var(--ease) backwards;animation-delay:cal
 }
 
 /* portrait, with the outlined 24 riding over its corner */
-.portrait{position:relative;margin:0}
+.portrait{position:relative;margin:2}
 /* Light frame. Every figure below was measured off page 2 of the PDF and is
    expressed in cqw / %, so the whole composition scales as one piece. */
 .portrait-frame{
@@ -813,8 +813,8 @@ body.ready .slot{animation:dealIn .95s var(--ease) backwards;animation-delay:cal
 /* He is cropped by the left edge and stops short of the right, which is
    what leaves the clear column the caption needs. */
 .portrait-frame img{
-  position:absolute;z-index:2;left:38%;bottom:0;
-  width:84%;height:auto;max-width:none;
+  position:absolute;z-index:2;left:50%;bottom:-2;
+  width:100%;height:auto;max-width:none;
   transform:translateX(-50%);
 }
 
@@ -822,7 +822,7 @@ body.ready .slot{animation:dealIn .95s var(--ease) backwards;animation-delay:cal
    over the photo, so it stays readable instead of sinking into his jacket */
 .portrait-cap{
   position:absolute;z-index:3;
-  right:6%;top:46%;
+  right:0%;top:6%;
   writing-mode:vertical-rl;
   font-weight:300;font-size:10.5cqw;line-height:1;letter-spacing:.015em;
   color:#2a2724;
@@ -1107,7 +1107,7 @@ body.ready .slot{animation:dealIn .95s var(--ease) backwards;animation-delay:cal
    empty left third so the banner says something instead of just naming itself */
 .banner-claim{
   position:absolute;z-index:3;
-  left:5%;bottom:19%;max-width:31%;
+  right:5%;bottom:19%;max-width:31%;
 }
 .banner-claim p{
   font-weight:200;font-size:clamp(.8rem,2.5cqw,2.1rem);
@@ -1161,7 +1161,7 @@ body.ready .slot{animation:dealIn .95s var(--ease) backwards;animation-delay:cal
 /* 4 · him, standing on the rail */
 .banner-cut{
   position:absolute;z-index:5;
-  left:50%;bottom:0;width:27%;
+  left:50%;bottom:10;width:100%;
   transform:translateX(-50%);
 }
 .banner-cut img{width:100%;height:auto;max-width:none;
