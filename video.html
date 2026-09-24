@@ -12,6 +12,28 @@
 <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@100;200;300;400;500;600;700;800;900&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="assets/style.css">
 <noscript><style>.rv,.rise,.wordmark .gl{opacity:1!important;transform:none!important}#pre{display:none}</style></noscript>
+<style id="yt-style">
+/* Tile YouTube: tampil sama seperti .shot, isinya thumbnail lalu iframe */
+.yt-shot{
+  position:relative;margin:0;overflow:hidden;
+  border-radius:clamp(12px,1.3vw,20px);
+  background:var(--c-200,#1b1b1b);
+  transition:transform .5s var(--ease,ease),box-shadow .5s var(--ease,ease);
+}
+.yt-shot:hover{transform:translateY(-5px);box-shadow:0 34px 60px -30px rgba(0,0,0,1)}
+.yt-shot img,.yt-shot iframe{
+  position:absolute;inset:0;display:block;
+  width:100%;height:100%;max-width:none;border:0;object-fit:cover;
+}
+.reel--land .yt-shot{aspect-ratio:16/9}
+.reel--four .yt-shot,.reel--six .yt-shot{aspect-ratio:9/16}
+/* .play memakai display:grid, jadi disembunyikan lewat class, bukan atribut hidden */
+.yt-shot.playing .play{opacity:0;visibility:hidden;pointer-events:none}
+@media(hover:hover) and (pointer:fine){
+  .yt-shot:hover .play i{transform:scale(1.09);background:linear-gradient(150deg,var(--o-hi),var(--o-deep))}
+  .yt-shot:hover .play{background:linear-gradient(180deg,rgba(0,0,0,.02),rgba(0,0,0,.2))}
+}
+</style>
 </head>
 <body>
 
@@ -123,7 +145,7 @@
     <section class="group drawer rv" aria-labelledby="g-product">
       <button class="drawer-head" type="button" aria-expanded="true" aria-controls="d-product">
         <span class="fan" aria-hidden="true">
-          <span class="fan-card"><picture>
+          <span class="fan-card" data-yt="https://www.youtube.com/watch?v=GANTI_DENGAN_ID_VIDEO"><picture>
             <source srcset="assets/media/thumbs/prompter-01.webp" type="image/webp">
             <img src="assets/media/thumbs/prompter-01.jpg" alt="" loading="lazy" decoding="async">
           </picture></span>
@@ -354,24 +376,48 @@
 <script src="assets/app.js"></script>
 
 <script>
-/* YouTube tiles: iframe baru dibuat saat tombol play diklik */
+/* YouTube tiles: thumbnail otomatis dari YouTube, iframe dibuat saat tombol play diklik */
 (function () {
   const tiles = document.querySelectorAll('.yt-shot[data-yt]');
-  if (!tiles.length) return;
+  const fanCards = document.querySelectorAll('.fan-card[data-yt]');
+  if (!tiles.length && !fanCards.length) return;
 
   // terima link penuh (watch / youtu.be / shorts / embed) atau ID 11 karakter
   function ytId(v) {
+    const ok = x => (/^[\w-]{11}$/.test(x || '') ? x : null);
     v = (v || '').trim();
-    if (/^[\w-]{11}$/.test(v)) return v;
+    if (ok(v)) return v;
     try {
       const u = new URL(v);
-      if (u.hostname.includes('youtu.be')) return u.pathname.slice(1).split('/')[0];
-      if (u.searchParams.get('v')) return u.searchParams.get('v');
+      if (u.hostname.includes('youtu.be')) return ok(u.pathname.slice(1).split('/')[0]);
+      if (u.searchParams.get('v')) return ok(u.searchParams.get('v'));
       const m = u.pathname.match(/\/(?:embed|shorts|live)\/([\w-]{11})/);
       if (m) return m[1];
     } catch (e) {}
     return null;
   }
+
+  // pasang thumbnail YouTube ke sebuah <img> (resolusi tertinggi dulu, lalu turun)
+  function setYtThumb(img, id) {
+    if (!img || !id) return;
+    const orig = img.getAttribute('src');                 // thumbnail lokal, dipakai kalau YouTube gagal
+    img.closest('picture')?.querySelectorAll('source').forEach(s => s.remove()); // <source> lokal akan menimpa src
+    const base = 'https://i.ytimg.com/vi/' + id + '/';
+    const sizes = ['maxresdefault.jpg', 'hqdefault.jpg'];
+    let i = 0;
+    img.onerror = () => {
+      if (++i < sizes.length) img.src = base + sizes[i];
+      else { img.onerror = img.onload = null; if (orig) img.src = orig; }
+    };
+    img.onload = () => {
+      // maxres yang tidak tersedia kadang tetap mengembalikan gambar placeholder kecil
+      if (img.naturalWidth <= 120 && i < sizes.length - 1) { i++; img.src = base + sizes[i]; }
+    };
+    img.src = base + sizes[0];
+  }
+
+  tiles.forEach(t => setYtThumb(t.querySelector('img'), ytId(t.dataset.yt)));
+  fanCards.forEach(c => setYtThumb(c.querySelector('img'), ytId(c.dataset.yt)));
 
   function reset(tile) {
     const f = tile.querySelector('iframe');
@@ -382,25 +428,10 @@
     tiles.forEach(t => { if (t !== except) reset(t); });
   }
 
-  // thumbnail otomatis dari YouTube (resolusi tertinggi dulu, lalu turun)
-  tiles.forEach(tile => {
-    const img = tile.querySelector('img');
-    const id = ytId(tile.dataset.yt);
-    if (!img || !id) return;
-    const base = 'https://i.ytimg.com/vi/' + id + '/';
-    const sizes = ['maxresdefault.jpg', 'hqdefault.jpg'];
-    let i = 0;
-    img.onerror = () => { if (++i < sizes.length) img.src = base + sizes[i]; };
-    img.onload = () => {
-      // maxres yang tidak tersedia kadang tetap mengembalikan gambar placeholder kecil
-      if (img.naturalWidth <= 120 && i < sizes.length - 1) { i++; img.src = base + sizes[i]; }
-    };
-    img.src = base + sizes[0];
-  });
-
   tiles.forEach(tile => {
     const btn = tile.querySelector('.play');
     btn.addEventListener('click', () => {
+      if (tile.querySelector('iframe')) return;                 // sudah main, jangan buat iframe lagi
       const id = ytId(tile.dataset.yt);
       if (!id) { console.warn('Link YouTube tidak valid:', tile.dataset.yt); return; }
 
