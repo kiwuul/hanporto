@@ -1161,7 +1161,7 @@ body.ready .slot{animation:dealIn .95s var(--ease) backwards;animation-delay:cal
 /* 4 · him, standing on the rail */
 .banner-cut{
   position:absolute;z-index:5;
-  left:50%;bottom:10;width:100%;
+  left:5%;bottom:10;width:100%;
   transform:translateX(-50%);
 }
 .banner-cut img{width:100%;height:auto;max-width:none;
