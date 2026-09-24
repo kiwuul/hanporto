@@ -1756,15 +1756,19 @@ body.ready .rv.in .banner-word .gl{
   font-weight:300;font-size:clamp(.8rem,.95vw,.9rem);line-height:1.7;color:var(--txt-dim);
 }
 
+/* auto masonry: columns just wrap to width, rows are a tiny 4px unit and
+   every card is told how many units tall it is by JS (see the script at
+   the bottom of the page), based on the real size of its own media. Tall
+   (vertical) clips end up spanning more rows automatically; dense flow
+   then tucks the shorter cards up around them instead of leaving gaps. */
 .vg-grid{
   display:grid;
-  grid-template-columns:1fr 1fr .78fr;
-  grid-template-areas:
-    "ev ads mg"
-    "hy doc mg";
+  grid-template-columns:repeat(auto-fill,minmax(clamp(220px,26vw,320px),1fr));
+  grid-auto-rows:4px;
+  grid-auto-flow:dense;
+  align-items:start;
   gap:clamp(12px,1.4vw,20px);
 }
-.vg--ev{grid-area:ev}.vg--ads{grid-area:ads}.vg--hy{grid-area:hy}.vg--doc{grid-area:doc}.vg--mg{grid-area:mg}
 
 .vg-card{
   position:relative;display:flex;flex-direction:column;gap:12px;
@@ -1777,8 +1781,10 @@ body.ready .rv.in .banner-word .gl{
 /* every second card runs cooler so the grid does not read as one slab */
 .vg--ads,.vg--hy{background:linear-gradient(165deg,#ff009900 0%,#ff009946 2%,#ff009900 100%)}
 .vg-card:hover{transform:translateY(-6px);box-shadow:inset 0 1px 0 rgba(255,255,255,.4),0 44px 80px -30px rgba(0,0,0,1)}
-.vg-card .shot{aspect-ratio:16/9;border-radius:clamp(12px,1.4vw,18px)}
-.vg--mg .shot{flex:1;aspect-ratio:auto;min-height:0}
+/* --media-ratio is set per-card by JS once the video/image's real
+   dimensions are known; until then every card falls back to 16:9 so the
+   grid doesn't jump when it first paints. */
+.vg-card .shot{aspect-ratio:var(--media-ratio,16/9);border-radius:clamp(12px,1.4vw,18px)}
 .vg-card:hover .shot{transform:none}
 .vg-foot{display:flex;align-items:baseline;justify-content:space-between;gap:10px;padding:0 4px}
 .vg-card h4{font-weight:800;font-size:clamp(1.05rem,1.7vw,1.5rem);letter-spacing:-.03em;color:#fff}
@@ -2021,14 +2027,7 @@ body.ready .rv.in .banner-word .gl{
   .creator{grid-template-columns:1fr}
   .creator-card{transform:none}
   .creator-reel{width:100%}
-  .vg-grid{
-    grid-template-columns:1fr 1fr;
-    grid-template-areas:
-      "ev ads"
-      "hy doc"
-      "mg mg";
-  }
-  .vg--mg .shot{aspect-ratio:16/9}
+  .vg-grid{grid-template-columns:repeat(auto-fill,minmax(200px,1fr))}
   .foot-nav{align-items:flex-start}
 }
 @media(max-width:700px){
@@ -2040,7 +2039,7 @@ body.ready .rv.in .banner-word .gl{
 @media(max-width:620px){
   .creator-reel{grid-template-columns:repeat(3,1fr);gap:8px}
   .creator-reel .shot:nth-child(n){transform:none}
-  .vg-grid{grid-template-columns:1fr;grid-template-areas:"ev" "ads" "hy" "doc" "mg"}
+  .vg-grid{grid-template-columns:1fr}
   .foot-bottom{flex-direction:column;align-items:stretch}
   .foot-cut{align-self:flex-start}
   .foot-contact{margin-bottom:0;border-radius:14px;flex-direction:column;align-items:flex-start;gap:10px}
