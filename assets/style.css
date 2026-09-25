@@ -1866,21 +1866,19 @@ body.ready .rv.in .banner-word .gl{
   background:rgba(0,0,0,.45);backdrop-filter:blur(8px);-webkit-backdrop-filter:blur(8px);
 }
 
-/* ── 01 · EVENT — a rigid mosaic. Every source is 16:9, so every cell is
-      16:9 too and nothing is cropped: two leads, then three beats. ── */
+/* ── 01 · EVENT — an auto masonry. Each frame's aspect-ratio is set by
+      JS from its own photo's real dimensions (--media-ratio, default
+      16:9 until that runs), and grid-auto-flow:dense packs the rest of
+      the frames around whatever shape each one turns out to be —
+      instead of assuming every source is 16:9 and cropping to fit. ── */
 .mosaic{display:grid;gap:clamp(8px,1vw,14px)}
 .mosaic--event{
-  grid-template-columns:repeat(6,1fr);
-  grid-template-areas:
-    "a a a b b b"
-    "c c d d e e";
+  grid-template-columns:repeat(auto-fill,minmax(clamp(200px,28vw,340px),1fr));
+  grid-auto-rows:4px;
+  grid-auto-flow:dense;
+  align-items:start;
 }
-.mosaic--event .frame{aspect-ratio:16/9}
-.mosaic--event .m-a{grid-area:a}
-.mosaic--event .m-b{grid-area:b}
-.mosaic--event .m-c{grid-area:c}
-.mosaic--event .m-d{grid-area:d}
-.mosaic--event .m-e{grid-area:e}
+.mosaic--event .frame{aspect-ratio:var(--media-ratio,16/9)}
 
 /* ── 02 · WEDDING — a photo wall. Two weddings, eight frames, every
       shape different, so a column layout that lets each keep its own
@@ -1894,13 +1892,19 @@ body.ready .rv.in .banner-word .gl{
 }
 .wall .frame img{position:static;width:100%;height:auto;display:block}
 
-/* ── 03 · SPORT — a contact strip. Five portraits in a row, every second
-      one dropped down the page, so the eye runs along it. ── */
+/* ── 03 · SPORT — a contact strip. Same idea as the justified row below:
+      a fixed height, natural width, nothing cropped — so a landscape
+      shot and a portrait shot sit side by side at their own proportions
+      instead of all being forced into the same 2:3 box. Every second
+      frame still drops down the page so the eye runs along it. ── */
 .filmstrip{
-  display:grid;grid-template-columns:repeat(5,1fr);
-  gap:clamp(8px,1vw,14px);align-items:start;
+  display:flex;flex-wrap:wrap;justify-content:center;
+  gap:clamp(8px,1vw,14px);
 }
-.filmstrip .frame{aspect-ratio:2/3}
+.filmstrip .frame{
+  flex:0 0 auto;height:clamp(220px,26vw,340px);
+}
+.filmstrip .frame img{position:static;width:auto;height:100%;display:block}
 .filmstrip .frame:nth-child(even){margin-top:clamp(16px,3.2vw,52px)}
 
 /* ── 04 · GRADUATION & TRAVEL — a justified row. Same height, natural
@@ -1924,18 +1928,13 @@ body.ready .rv.in .banner-word .gl{
 
 @media(max-width:900px){
   .wall{columns:2}
-  .filmstrip{grid-template-columns:repeat(3,1fr)}
-  .filmstrip .frame:nth-child(even){margin-top:0}
-  .filmstrip .frame:nth-child(3n+2){margin-top:clamp(14px,3vw,34px)}
+  .filmstrip .frame{height:clamp(180px,22vw,260px)}
 }
 @media(max-width:620px){
-  /* 16:9 tiles get unreadable in half a phone width — stack them */
-  .mosaic--event{
-    grid-template-columns:1fr;
-    grid-template-areas:"a" "b" "c" "d" "e";
-  }
+  /* narrow frames get unreadable in half a phone width — stack the mosaic */
+  .mosaic--event{grid-template-columns:1fr}
   .wall{columns:2;column-gap:8px}
-  .filmstrip{grid-template-columns:1fr 1fr}
+  .filmstrip .frame{height:clamp(150px,40vw,220px)}
   .filmstrip .frame:nth-child(n){margin-top:0}
   .filmstrip .frame:nth-child(even){margin-top:clamp(12px,5vw,26px)}
   /* a justified row needs more width than a phone has, so the same

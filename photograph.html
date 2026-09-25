@@ -11,7 +11,14 @@
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@100;200;300;400;500;600;700;800;900&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="assets/style.css">
-<noscript><style>.rv,.rise,.wordmark .gl{opacity:1!important;transform:none!important}#pre{display:none}</style></noscript>
+<noscript><style>
+.rv,.rise,.wordmark .gl{opacity:1!important;transform:none!important}#pre{display:none}
+/* without JS, grid-row-end is never set on the mosaic frames — fall
+   back to a plain wrapping grid instead of squashing every photo into
+   a 4px row. */
+.mosaic--event{grid-auto-rows:auto}
+.mosaic--event .frame{grid-row-end:auto!important;aspect-ratio:16/9}
+</style></noscript>
 </head>
 <body>
 
@@ -69,13 +76,13 @@
     <!-- banner: FOTO filled, GRAPH outlined, stepped off the left edge -->
     <div class="banner banner--photo rv">
       <picture class="banner-bg">
-        <source srcset="assets/media/photo-banner.webp" type="image/webp">
-        <img src="assets/media/photo-banner.jpg" alt="Javanese dancer with silk ribbons on stage"
+        <source srcset="assets/random/4.webp" type="image/webp">
+        <img src="assets/random/4.JPG" alt="Javanese dancer with silk ribbons on stage"
              width="682" height="405" decoding="async" loading="lazy">
       </picture>
 
       <div class="banner-tl">
-        <span class="banner-word dovde" data-split>Foto</span>
+        <span class="banner-word dovde" data-split>Photo</span>
         <span class="banner-word dovde outline" data-split>graph</span>
       </div>
 
@@ -92,131 +99,209 @@
     <section class="album album--event rv" aria-labelledby="al-event">
       <header class="album-head">
         <h3 id="al-event">Event<em>.</em></h3>
-        <span>Stage, ceremony, street · 3rd place, BIOCASH 2023</span>
+        <span>Concert</span>
       </header>
       <div class="mosaic mosaic--event">
         <figure class="frame m-a"><span class="chip">01</span>
-          <picture><source srcset="assets/media/photo-event-01.webp" type="image/webp">
-            <img src="assets/media/photo-event-01.jpg" alt="A guard standing before a Javanese pendopo" loading="lazy" decoding="async"></picture>
+          <picture><source srcset="assets/event/oli.webp" type="image/webp">
+            <img src="assets/event/oli.JPG" alt="oliver sykes" loading="lazy" decoding="async"></picture>
         </figure>
         <figure class="frame m-b"><span class="chip">02</span>
-          <picture><source srcset="assets/media/photo-event-02.webp" type="image/webp">
-            <img src="assets/media/photo-event-02.jpg" alt="Two dancers performing in the rain" loading="lazy" decoding="async"></picture>
+          <picture><source srcset="assets/event/oli2.webp" type="image/webp">
+            <img src="assets/event/oli2.JPG" alt="oliver sykes" loading="lazy" decoding="async"></picture>
         </figure>
         <figure class="frame m-c"><span class="chip">03</span>
-          <picture><source srcset="assets/media/photo-event-03.webp" type="image/webp">
-            <img src="assets/media/photo-event-03.jpg" alt="Singer silhouetted against a neon stage screen" loading="lazy" decoding="async"></picture>
+          <picture><source srcset="assets/event/v1.webp" type="image/webp">
+            <img src="assets/event/v1.JPG" alt="widi vierratale" loading="lazy" decoding="async"></picture>
         </figure>
         <figure class="frame m-d"><span class="chip">04</span>
-          <picture><source srcset="assets/media/photo-event-04.webp" type="image/webp">
-            <img src="assets/media/photo-event-04.jpg" alt="Women in kebaya during a ceremony" loading="lazy" decoding="async"></picture>
+          <picture><source srcset="assets/event/v2.webp" type="image/webp">
+            <img src="assets/event/v2.JPG" alt="raka vierratale" loading="lazy" decoding="async"></picture>
         </figure>
-        <figure class="frame m-e"><span class="chip">05</span>
-          <picture><source srcset="assets/media/photo-event-05.webp" type="image/webp">
-            <img src="assets/media/photo-event-05.jpg" alt="Two singers on a dark stage" loading="lazy" decoding="async"></picture>
+        <figure class="frame m-d"><span class="chip">05</span>
+          <picture><source srcset="assets/event/v3.webp" type="image/webp">
+            <img src="assets/event/v3.JPG" alt="widi vierratale" loading="lazy" decoding="async"></picture>
         </figure>
-      </div>
-    </section>
-
-    <!-- ── album 2 · wedding ── -->
-    <section class="album album--wedding rv" aria-labelledby="al-wedding">
-      <header class="album-head">
-        <h3 id="al-wedding">Wedding<em>.</em></h3>
-        <span>Akad, portrait, and the people around them · 8 frames</span>
-      </header>
-      <div class="wall">
-        <figure class="frame"><span class="chip">01</span>
-          <picture><source srcset="assets/media/photo-wed-01.webp" type="image/webp">
-            <img src="assets/media/photo-wed-01.jpg" alt="Groom and groomsmen, group portrait" loading="lazy" decoding="async"></picture>
-        </figure>
-        <figure class="frame"><span class="chip">04</span>
-          <picture><source srcset="assets/media/photo-wed-04.webp" type="image/webp">
-            <img src="assets/media/photo-wed-04.jpg" alt="Couple holding their marriage books" loading="lazy" decoding="async"></picture>
-        </figure>
-        <figure class="frame"><span class="chip">02</span>
-          <picture><source srcset="assets/media/photo-wed-02.webp" type="image/webp">
-            <img src="assets/media/photo-wed-02.jpg" alt="Groom kissing the bride's forehead" loading="lazy" decoding="async"></picture>
-        </figure>
-        <figure class="frame"><span class="chip">05</span>
-          <picture><source srcset="assets/media/photo-wed-05.webp" type="image/webp">
-            <img src="assets/media/photo-wed-05.jpg" alt="Groom in gold handing over the ceremonial box" loading="lazy" decoding="async"></picture>
-        </figure>
-        <figure class="frame"><span class="chip">03</span>
-          <picture><source srcset="assets/media/photo-wed-03.webp" type="image/webp">
-            <img src="assets/media/photo-wed-03.jpg" alt="Groomsmen carrying the groom while the bride watches" loading="lazy" decoding="async"></picture>
-        </figure>
-        <figure class="frame"><span class="chip">06</span>
-          <picture><source srcset="assets/media/photo-wed-06.webp" type="image/webp">
-            <img src="assets/media/photo-wed-06.jpg" alt="The whole wedding party lined up" loading="lazy" decoding="async"></picture>
-        </figure>
-        <figure class="frame"><span class="chip">07</span>
-          <picture><source srcset="assets/media/photo-wed-07.webp" type="image/webp">
-            <img src="assets/media/photo-wed-07.jpg" alt="Couple with their marriage books at the backdrop" loading="lazy" decoding="async"></picture>
-        </figure>
-        <figure class="frame"><span class="chip">08</span>
-          <picture><source srcset="assets/media/photo-wed-08.webp" type="image/webp">
-            <img src="assets/media/photo-wed-08.jpg" alt="Couple in gold during the suapan" loading="lazy" decoding="async"></picture>
+        <figure class="frame m-d"><span class="chip">06</span>
+          <picture><source srcset="assets/event/v4.webp" type="image/webp">
+            <img src="assets/event/v4.JPG" alt="kevin vierratale" loading="lazy" decoding="async"></picture>
         </figure>
       </div>
     </section>
 
-    <!-- ── album 3 · sport ── -->
-    <section class="album album--sport rv" aria-labelledby="al-sport">
-      <header class="album-head">
-        <h3 id="al-sport">Race day<em>.</em></h3>
-        <span>Shot on the road · runners caught mid-stride</span>
-      </header>
-      <div class="filmstrip">
-        <figure class="frame"><span class="chip">01</span>
-          <picture><source srcset="assets/media/photo-sport-01.webp" type="image/webp">
-            <img src="assets/media/photo-sport-01.jpg" alt="Runner waving at the camera beside a traffic cone" loading="lazy" decoding="async"></picture>
-        </figure>
-        <figure class="frame"><span class="chip">02</span>
-          <picture><source srcset="assets/media/photo-sport-02.webp" type="image/webp">
-            <img src="assets/media/photo-sport-02.jpg" alt="Runner in blue with arms outstretched" loading="lazy" decoding="async"></picture>
-        </figure>
-        <figure class="frame"><span class="chip">03</span>
-          <picture><source srcset="assets/media/photo-sport-03.webp" type="image/webp">
-            <img src="assets/media/photo-sport-03.jpg" alt="Runner smiling in the middle of the pack" loading="lazy" decoding="async"></picture>
-        </figure>
-        <figure class="frame"><span class="chip">04</span>
-          <picture><source srcset="assets/media/photo-sport-04.webp" type="image/webp">
-            <img src="assets/media/photo-sport-04.jpg" alt="Runner laughing on the road" loading="lazy" decoding="async"></picture>
-        </figure>
-        <figure class="frame"><span class="chip">05</span>
-          <picture><source srcset="assets/media/photo-sport-05.webp" type="image/webp">
-            <img src="assets/media/photo-sport-05.jpg" alt="Runner passing shopfronts in the city" loading="lazy" decoding="async"></picture>
-        </figure>
-      </div>
-    </section>
-
-    <!-- ── album 4 · graduation & travel ── -->
+    <!-- ── album 2 · graduation ── -->
     <section class="album album--trip rv" aria-labelledby="al-trip">
       <header class="album-head">
-        <h3 id="al-trip">Graduation &amp; travel<em>.</em></h3>
+        <h3 id="al-trip">Graduation<em>.</em></h3>
         <span>Uncropped · every frame at its own proportion</span>
       </header>
       <div class="justified">
         <figure class="frame"><span class="chip">01</span>
-          <picture><source srcset="assets/media/photo-trip-01.webp" type="image/webp">
-            <img src="assets/media/photo-trip-01.jpg" alt="Woman on the beach at sunset" loading="lazy" decoding="async"></picture>
+          <picture><source srcset="assets/graduation/1.webp" type="image/webp">
+            <img src="assets/graduation/1.jpg" loading="lazy" decoding="async"></picture>
         </figure>
         <figure class="frame"><span class="chip">02</span>
-          <picture><source srcset="assets/media/photo-trip-02.webp" type="image/webp">
-            <img src="assets/media/photo-trip-02.jpg" alt="Graduate looking up from a balcony" loading="lazy" decoding="async"></picture>
+          <picture><source srcset="assets/graduation/2.webp" type="image/webp">
+            <img src="assets/graduation/2.jpg" loading="lazy" decoding="async"></picture>
         </figure>
         <figure class="frame"><span class="chip">03</span>
-          <picture><source srcset="assets/media/photo-trip-03.webp" type="image/webp">
-            <img src="assets/media/photo-trip-03.jpg" alt="Graduate and her mother holding flowers" loading="lazy" decoding="async"></picture>
+          <picture><source srcset="assets/graduation/3.webp" type="image/webp">
+            <img src="assets/graduation/3.jpg" loading="lazy" decoding="async"></picture>
         </figure>
-        <figure class="frame"><span class="chip">04</span>
-          <picture><source srcset="assets/media/photo-trip-04.webp" type="image/webp">
-            <img src="assets/media/photo-trip-04.jpg" alt="Green cliff above the sea" loading="lazy" decoding="async"></picture>
+       <figure class="frame"><span class="chip">04</span>
+          <picture><source srcset="assets/graduation/4.webp" type="image/webp">
+            <img src="assets/graduation/4.jpg" loading="lazy" decoding="async"></picture>
+        </figure>
+        <figure class="frame"><span class="chip">05</span>
+          <picture><source srcset="assets/graduation/5.webp" type="image/webp">
+            <img src="assets/graduation/5.jpg" loading="lazy" decoding="async"></picture>
+        </figure>
+        <figure class="frame"><span class="chip">06</span>
+          <picture><source srcset="assets/graduation/6.webp" type="image/webp">
+            <img src="assets/graduation/6.jpg" loading="lazy" decoding="async"></picture>
+        </figure>
+        <figure class="frame"><span class="chip">07</span>
+          <picture><source srcset="assets/graduation/7.webp" type="image/webp">
+            <img src="assets/graduation/7.jpg" loading="lazy" decoding="async"></picture>
+        </figure>
+        <figure class="frame"><span class="chip">08</span>
+          <picture><source srcset="assets/graduation/8.webp" type="image/webp">
+            <img src="assets/graduation/8.jpg" loading="lazy" decoding="async"></picture>
+        </figure>
+        <figure class="frame"><span class="chip">09</span>
+          <picture><source srcset="assets/graduation/9.webp" type="image/webp">
+            <img src="assets/graduation/9.jpg" loading="lazy" decoding="async"></picture>
+        </figure>
+        <figure class="frame"><span class="chip">10</span>
+          <picture><source srcset="assets/graduation/10.webp" type="image/webp">
+            <img src="assets/graduation/10.jpg" loading="lazy" decoding="async"></picture>
         </figure>
       </div>
     </section>
 
-    
+     <!-- ── album 3 · product ── -->
+    <section class="album album--event rv" aria-labelledby="al-event">
+      <header class="album-head">
+        <h3 id="al-event">Product<em>.</em></h3>
+        <span> </span>
+      </header>
+      <div class="mosaic mosaic--event">
+        <figure class="frame m-a"><span class="chip">01</span>
+          <picture><source srcset="assets/product/1.webp" type="image/webp">
+            <img src="assets/product/1.jpg" loading="lazy" decoding="async"></picture>
+        </figure>
+        <figure class="frame m-a"><span class="chip">02</span>
+          <picture><source srcset="assets/product/2.webp" type="image/webp">
+            <img src="assets/product/2.jpg" loading="lazy" decoding="async"></picture>
+        </figure>
+        <figure class="frame m-a"><span class="chip">03</span>
+          <picture><source srcset="assets/product/3.webp" type="image/webp">
+            <img src="assets/product/3.jpg" loading="lazy" decoding="async"></picture>
+        </figure>
+        <figure class="frame m-a"><span class="chip">04</span>
+          <picture><source srcset="assets/product/4.webp" type="image/webp">
+            <img src="assets/product/4.jpg" loading="lazy" decoding="async"></picture>
+        </figure>
+        <figure class="frame m-a"><span class="chip">05</span>
+          <picture><source srcset="assets/product/5.webp" type="image/webp">
+            <img src="assets/product/5.jpg" loading="lazy" decoding="async"></picture>
+        </figure>
+        <figure class="frame m-a"><span class="chip">06</span>
+          <picture><source srcset="assets/product/6.webp" type="image/webp">
+            <img src="assets/product/6.jpg" loading="lazy" decoding="async"></picture>
+        </figure>
+        <figure class="frame m-a"><span class="chip">07</span>
+          <picture><source srcset="assets/product/7.webp" type="image/webp">
+            <img src="assets/product/7.jpg" loading="lazy" decoding="async"></picture>
+        </figure>
+        <figure class="frame m-a"><span class="chip">08</span>
+          <picture><source srcset="assets/product/8.webp" type="image/webp">
+            <img src="assets/product/8.jpg" loading="lazy" decoding="async"></picture>
+        </figure>
+        <figure class="frame m-a"><span class="chip">09</span>
+          <picture><source srcset="assets/product/9.webp" type="image/webp">
+            <img src="assets/product/9.jpg" loading="lazy" decoding="async"></picture>
+        </figure>
+        <figure class="frame m-a"><span class="chip">10</span>
+          <picture><source srcset="assets/product/10.webp" type="image/webp">
+            <img src="assets/product/10.jpg" loading="lazy" decoding="async"></picture>
+        </figure>
+        <figure class="frame m-a"><span class="chip">11</span>
+          <picture><source srcset="assets/product/11.webp" type="image/webp">
+            <img src="assets/product/11.jpg" loading="lazy" decoding="async"></picture>
+        </figure>
+        <figure class="frame m-a"><span class="chip">12</span>
+          <picture><source srcset="assets/product/12.webp" type="image/webp">
+            <img src="assets/product/12.jpg" loading="lazy" decoding="async"></picture>
+        </figure>
+        <figure class="frame m-a"><span class="chip">13</span>
+          <picture><source srcset="assets/product/13.webp" type="image/webp">
+            <img src="assets/product/13.jpg" loading="lazy" decoding="async"></picture>
+        </figure>
+        <figure class="frame m-a"><span class="chip">14</span>
+          <picture><source srcset="assets/product/14.webp" type="image/webp">
+            <img src="assets/product/14.jpg" loading="lazy" decoding="async"></picture>
+        </figure>
+        <figure class="frame m-a"><span class="chip">15</span>
+          <picture><source srcset="assets/product/15.webp" type="image/webp">
+            <img src="assets/product/15.jpg" loading="lazy" decoding="async"></picture>
+        </figure>
+      </div>
+    </section>
+
+    <!-- ── album 4 · random ── -->
+    <section class="album album--wedding rv" aria-labelledby="al-wedding">
+      <header class="album-head">
+        <h3 id="al-wedding">Random<em>.</em></h3>
+        <span>Random photos</span>
+      </header>
+      <div class="wall">
+        <figure class="frame"><span class="chip">01</span>
+          <picture><source srcset="assets/random/1.webp" type="image/webp">
+            <img src="assets/random/1.JPG"  loading="lazy" decoding="async"></picture>
+        </figure>
+        <figure class="frame"><span class="chip">02</span>
+          <picture><source srcset="assets/random/2.webp" type="image/webp">
+            <img src="assets/random/2.JPG"  loading="lazy" decoding="async"></picture>
+        </figure>
+        <figure class="frame"><span class="chip">03</span>
+          <picture><source srcset="assets/random/3.webp" type="image/webp">
+            <img src="assets/random/3.JPG"  loading="lazy" decoding="async"></picture>
+        </figure>
+        <figure class="frame"><span class="chip">04</span>
+          <picture><source srcset="assets/random/4.webp" type="image/webp">
+            <img src="assets/random/4.JPG"  loading="lazy" decoding="async"></picture>
+        </figure>
+        <figure class="frame"><span class="chip">05</span>
+          <picture><source srcset="assets/random/5.webp" type="image/webp">
+            <img src="assets/random/5.JPG"  loading="lazy" decoding="async"></picture>
+        </figure>
+        <figure class="frame"><span class="chip">06</span>
+          <picture><source srcset="assets/random/6.webp" type="image/webp">
+            <img src="assets/random/6.JPG"  loading="lazy" decoding="async"></picture>
+        </figure>
+        <figure class="frame"><span class="chip">07</span>
+          <picture><source srcset="assets/random/7.webp" type="image/webp">
+            <img src="assets/random/7.JPG"  loading="lazy" decoding="async"></picture>
+        </figure>
+        <figure class="frame"><span class="chip">08</span>
+          <picture><source srcset="assets/random/8.webp" type="image/webp">
+            <img src="assets/random/8.JPG"  loading="lazy" decoding="async"></picture>
+        </figure>
+        <figure class="frame"><span class="chip">09</span>
+          <picture><source srcset="assets/random/9.webp" type="image/webp">
+            <img src="assets/random/9.JPG"  loading="lazy" decoding="async"></picture>
+        </figure>
+        <figure class="frame"><span class="chip">10</span>
+          <picture><source srcset="assets/random/10.webp" type="image/webp">
+            <img src="assets/random/10.JPG"  loading="lazy" decoding="async"></picture>
+        </figure>
+        <figure class="frame"><span class="chip">11</span>
+          <picture><source srcset="assets/random/11.webp" type="image/webp">
+            <img src="assets/random/11.JPG"  loading="lazy" decoding="async"></picture>
+        </figure>
+      </div>
+    </section>
 
   </div>
 </section>
@@ -224,5 +309,95 @@
 
 
 <script src="assets/app.js"></script>
+<script>
+/* ── media-aware masonry ──
+   Reads each item's real image/video dimensions, sets that ratio as
+   --media-ratio (so a portrait photo gets a portrait frame instead of
+   being cropped square/16:9), then tells the grid how many 4px
+   row-units the item is tall so grid-auto-flow:dense can pack the rest
+   neatly around it.
+
+   A ResizeObserver drives the row-span (not a one-off measurement), so
+   the grid re-measures whenever an item's real height changes for any
+   reason — a web font swap rewrapping a caption, a late image load, a
+   viewport resize changing column width, etc. */
+(function(){
+  function initMediaMasonry(grid, itemSelector){
+    var cs   = getComputedStyle(grid);
+    var rowH = parseFloat(cs.getPropertyValue('grid-auto-rows')) || 4;
+
+    function gap(){
+      var g = getComputedStyle(grid);
+      return parseFloat(g.getPropertyValue('row-gap')) || parseFloat(g.getPropertyValue('gap')) || 0;
+    }
+
+    function span(item){
+      var h = item.getBoundingClientRect().height;
+      var g = gap();
+      var n = Math.ceil((h + g) / (rowH + g));
+      item.style.gridRowEnd = 'span ' + n;
+    }
+
+    function applyRatio(item, w, h){
+      if(!w || !h) return;
+      var target = item.querySelector('.shot') || item;
+      target.style.setProperty('--media-ratio', w + ' / ' + h);
+    }
+
+    function readMedia(item){
+      var media = item.querySelector('video, img');
+      if(!media) return;
+
+      if(media.tagName === 'IMG'){
+        if(media.complete && media.naturalWidth){
+          applyRatio(item, media.naturalWidth, media.naturalHeight);
+        } else {
+          media.addEventListener('load', function(){
+            applyRatio(item, media.naturalWidth, media.naturalHeight);
+          }, {once:true});
+        }
+        return;
+      }
+
+      if(media.videoWidth){
+        applyRatio(item, media.videoWidth, media.videoHeight);
+        return;
+      }
+      var poster = media.getAttribute('poster');
+      if(poster){
+        var img = new Image();
+        img.onload = function(){ applyRatio(item, img.naturalWidth, img.naturalHeight); };
+        img.src = poster;
+      }
+      media.addEventListener('loadedmetadata', function(){
+        applyRatio(item, media.videoWidth, media.videoHeight);
+      }, {once:true});
+    }
+
+    var items = Array.prototype.slice.call(grid.querySelectorAll(itemSelector));
+
+    var ro = new ResizeObserver(function(entries){
+      window.requestAnimationFrame(function(){
+        entries.forEach(function(entry){ span(entry.target); });
+      });
+    });
+
+    items.forEach(function(item){
+      span(item);
+      readMedia(item);
+      ro.observe(item);
+    });
+
+    if(document.fonts && document.fonts.ready){
+      document.fonts.ready.then(function(){ items.forEach(span); });
+    }
+  }
+
+  document.addEventListener('DOMContentLoaded', function(){
+    document.querySelectorAll('.vg-grid').forEach(function(g){ initMediaMasonry(g, '.vg-card'); });
+    document.querySelectorAll('.mosaic--event').forEach(function(g){ initMediaMasonry(g, '.frame'); });
+  });
+})();
+</script>
 </body>
 </html>
